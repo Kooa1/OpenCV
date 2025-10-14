@@ -22,6 +22,9 @@ file(GLOB_RECURSE SOURCE_FILES
 )
 
 if (WIN32)
+    set(OpenCV_DIR "D:/src/opencv/build/x64/vc16/lib")
+    include_directories("D:/src/opencv/build/include")
+    link_directories("D:/src/opencv/build/x64/vc16/lib")
 
 else (APPLE)
     set(OPENCV_ROOT "/opt/homebrew/Cellar/opencv/4.12.0_11")
