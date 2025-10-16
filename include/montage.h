@@ -15,10 +15,16 @@ class Montage {
 public:
     explicit Montage();
 
-    void montage(int count);
+    void in_source(int count, string target_path);
+
+    void out_target(int width, int height);
 
 private:
+    string target_path;
+
     int image_count;
+
+    cv::Mat out_image;
 
     vector<cv::Mat> source_images;
 };
