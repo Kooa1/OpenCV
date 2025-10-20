@@ -34,7 +34,8 @@ void Montage::in_source(const int count, string target_path) {
 
 void Montage::out_target(int width, int height) {
     cv::resize(out_image, out_image, cv::Size(width, height));
-    cv::Mat montage_image = out_image;
+    cv::Mat montage_image;
+    cv::resize(out_image, montage_image, cv::Size(width, height));
 
     /*
         直方图
@@ -106,7 +107,7 @@ void Montage::out_target(int width, int height) {
     cv::addWeighted(montage_image, 0.2, out_image, 0.8, 3, dest_image);
     cv::imwrite("/Users/wuwenze/Desktop/photo/desimage.jpeg", dest_image);
 
-    cv::imshow("montage", montage_image);
+    cv::imshow("montage", dest_image);
 
     cv::waitKey(0);
 }

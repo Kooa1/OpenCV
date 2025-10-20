@@ -2,12 +2,11 @@
 
 #include  <iostream>
 
-#include "montage.h"
+#include "picmake.h"
 
 int main() {
-    Montage m;
-    m.in_source(13, "/Users/wuwenze/Desktop/photo/23.jpeg");
-    m.out_target(1920, 1080);
+    PicMake p;
+
 
     return 0;
 }
