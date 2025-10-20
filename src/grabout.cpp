@@ -4,11 +4,11 @@
 
 #include "../include/grabout.h"
 
-GrabOut::GrabOut() {
+ColorGrabOut::ColorGrabOut() {
     cout << "init\n";
 }
 
-void GrabOut::draw(string infile) {
+void ColorGrabOut::draw(string infile) {
     /*
         1、设置需要去除的颜色
         2、对整个图片进行颜色匹配

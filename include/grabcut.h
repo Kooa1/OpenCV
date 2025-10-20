@@ -2,20 +2,20 @@
 // Created by 吴文泽 on 2025/10/20.
 //
 
-#ifndef OPENCV_GRABOUT_H
-#define OPENCV_GRABOUT_H
+#ifndef OPENCV_GRABCUT_H
+#define OPENCV_GRABCUT_H
 
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
 using namespace std;
 
-class ColorGrabOut {
+class GrabCutSample {
 public:
-    explicit ColorGrabOut();
+    GrabCutSample();
 
     void draw(string infile);
 };
 
 
-#endif //OPENCV_GRABOUT_H
+#endif //OPENCV_GRABCUT_H
