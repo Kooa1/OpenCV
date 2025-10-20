@@ -39,8 +39,6 @@ find_package(OpenCV REQUIRED)
 add_executable(OpenCV
         ${SOURCE_FILES}
         ${HEADER_FILES}
-        picmake.cpp
-        picmake.h
 )
 
 # 然后在目标创建后设置包含目录

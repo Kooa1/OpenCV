@@ -13,9 +13,9 @@ using namespace std;
 
 class PicMake {
 public:
-    PicMake();
+    explicit PicMake();
 
-    void init(const string &file_path);
+    void change_color(const string &file_path);
 };
 
 

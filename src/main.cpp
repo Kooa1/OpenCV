@@ -1,12 +1,8 @@
-#pragma once
-
 #include  <iostream>
 
-#include "picmake.h"
+#include "grabout.h"
 
 int main() {
-    PicMake p;
-
 
     return 0;
 }
