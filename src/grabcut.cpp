@@ -11,7 +11,7 @@ GrabCutSample::GrabCutSample() {
 void GrabCutSample::draw(string infile) {
     cv::Mat src_file = cv::imread(infile);
     cv::Mat mask, bg_model, fg_model;
-    cv::Rect rect(cv::Point(300, 0), cv::Point(src_file.cols - 300, src_file.rows));
+    cv::Rect rect(cv::Point(500, 300), cv::Point(src_file.cols - 150, src_file.rows));
     cv::grabCut(src_file,
                 mask,
                 rect,
@@ -26,22 +26,28 @@ void GrabCutSample::draw(string infile) {
     cv::imshow("mask", (mask & 1) * 255);
     cv::Mat result_mask = (mask & 1) * 255;
 
-    cv::Mat result_image = cv::Mat(src_file.rows, src_file.cols, CV_8UC3);
+    // cv::Mat result_image = cv::Mat(src_file.rows, src_file.cols, CV_8UC3);
     // cv::Mat result_image;
     // cv::resize(result_image, result_image, cv::Size(src_file.rows, src_file.cols));
-    for (int i = 0; i < src_file.rows; ++i) {
-        for (int j = 0; j < src_file.cols; ++j) {
-            cv::Vec3b &pixel_src = src_file.at<cv::Vec3b>(i, j);
-            cv::Vec3b &pixel_result = result_image.at<cv::Vec3b>(i, j);
 
-            uchar &pixel_mask = result_mask.at<uchar>(i, j);
-            if (pixel_mask == 255) {
-                for (int k = 0; k < 3; ++k) {
-                    pixel_result[k] = pixel_src[k];
-                }
-            }
-        }
-    }
+    cv::Mat result_image = cv::imread("/Users/wuwenze/Desktop/photo/3.jpeg");
+    cv::resize(result_image, result_image, cv::Size(src_file.cols, src_file.rows));
+
+    // for (int i = 0; i < src_file.rows; ++i) {
+    //     for (int j = 0; j < src_file.cols; ++j) {
+    //         cv::Vec3b &pixel_src = src_file.at<cv::Vec3b>(i, j);
+    //         cv::Vec3b &pixel_result = result_image.at<cv::Vec3b>(i, j);
+    //
+    //         uchar &pixel_mask = result_mask.at<uchar>(i, j);
+    //         if (pixel_mask == 255) {
+    //             for (int k = 0; k < 3; ++k) {
+    //                 pixel_result[k] = pixel_src[k];
+    //             }
+    //         }
+    //     }
+    // }
+
+    src_file.copyTo(result_image, result_mask);
 
     cv::imshow("result", result_image);
 
