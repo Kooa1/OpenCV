@@ -1,9 +1,8 @@
-#include "geometry.h"
+#include "grey.h"
 
 int main() {
-    Geometry g("/Users/wuwenze/Desktop/photo/true.jpeg");
-    // g.translate();
-    g.rotate();
+    Grey g("/Users/wuwenze/Desktop/photo/7.jpeg");
+    g.handle();
 
     return 0;
 }
