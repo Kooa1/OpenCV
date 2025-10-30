@@ -1,8 +1,8 @@
-#include "grey.h"
+#include "filterwaves.h"
 
 int main() {
-    Grey g("/Users/wuwenze/Desktop/photo/7.jpeg");
-    g.handle();
+    FilterWaves f("/Users/wuwenze/Desktop/photo/salt.png");
+    f.box_filter();
 
     return 0;
 }

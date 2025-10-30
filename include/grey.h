@@ -6,6 +6,7 @@
 #define OPENCV_GREY_H
 
 #include <iostream>
+#include <math.h>
 #include <opencv2/opencv.hpp>
 
 using namespace std;
@@ -16,8 +17,14 @@ public:
 
     void handle();
 
+    void handle2();
+
+    void line_change();
+
 private:
     string file_path;
+
+    int m_otsu(cv::Mat mat);
 };
 
 
