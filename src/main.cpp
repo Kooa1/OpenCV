@@ -1,8 +1,8 @@
-#include "filterwaves.h"
+#include "mform.h"
 
 int main() {
-    FilterWaves f("/Users/wuwenze/Desktop/photo/salt.png");
-    f.box_filter();
+    MForm m("/Users/wuwenze/Desktop/photo/14.jpeg");
+    m.corrupt();
 
     return 0;
 }
