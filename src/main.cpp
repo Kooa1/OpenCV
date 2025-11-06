@@ -1,8 +1,8 @@
-#include "mform.h"
+#include "edgedetection.h"
 
 int main() {
-    MForm m("/Users/wuwenze/Desktop/photo/14.jpeg");
-    m.corrupt();
+    EdgeDetection e("/Users/wuwenze/Desktop/photo/9.jpeg");
+    e.detection();
 
     return 0;
 }
