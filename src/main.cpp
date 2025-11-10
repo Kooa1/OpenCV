@@ -1,8 +1,10 @@
-#include "edgedetection.h"
+#include "geometrydetection.h"
 
 int main() {
-    EdgeDetection e("/Users/wuwenze/Desktop/photo/9.jpeg");
-    e.detection();
+    GeometryDetection g("/Users/wuwenze/Desktop/photo/shapes2.jpg");
+    // g.detection_circles();
+    // g.find_contours();
+    g.approx_polyPD();
 
     return 0;
 }
