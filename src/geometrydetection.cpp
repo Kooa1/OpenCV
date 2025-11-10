@@ -60,7 +60,7 @@ void GeometryDetection::find_contours() {
          CHAIN_APPROX_SIMPLE    = 2 只保存拐点信息
      */
     Mat canny_img;
-    Canny(gray_img, canny_img, 100, 200 );
+    Canny(gray_img, canny_img, 100, 200);
 
     imshow("canny", canny_img);
 
@@ -69,22 +69,29 @@ void GeometryDetection::find_contours() {
     // cout << contours.size() << '\n';
     // cout << hierarchy.size() << '\n';
     if (hierarchy.size() > 0) {
-        cout << hierarchy[0][0] << ", " << hierarchy[1][0] << ", " << hierarchy[2][0] << ", " << hierarchy[3][0] << '\n';
-    }
-
-    for (int i = 0; i < contours.size(); ++i) {
-        cout << contours[i].size() << "\n";
+        cout << hierarchy[0][0] << ", " << hierarchy[1][0] << ", " << hierarchy[2][0] << ", " << hierarchy[3][0] <<
+                '\n';
     }
 
     Mat out_img = src_img.clone();
     drawContours(out_img, contours, -1, Scalar(0), 5);
 
-    approx_polyPD()
+    vector<vector<Point> > approx_poly(contours.size());
+    for (int i = 0; i < contours.size(); ++i) {
+        approxPolyDP(contours[i], approx_poly[i], 0.01 * arcLength(contours[i], true), true);
+        cout << approx_poly[i].size() << '\n';
+
+        Moments mom_ret = moments(approx_poly[i]);
+        int x = static_cast<int>(mom_ret.m10 / mom_ret.m00);
+        int y = static_cast<int>(mom_ret.m01 / mom_ret.m00);
+
+        cout << x << ", " << y << '\n';
+        circle(out_img, Point(x, y), 3, Scalar(i * 255 / contours.size()), -1);
+    }
 
     imshow("out", out_img);
     waitKey(0);
 }
 
 void GeometryDetection::approx_polyPD() {
-
 }
